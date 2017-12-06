@@ -1,0 +1,13 @@
+// STM32F103 + GPIO (LED, BTN)
+
+// PA0  - (OUT)	LED1
+// PA1	- (IN)	BTN1
+// PC13 - (OUT)	LED0
+
+#define		BTN1				GPIOA->IDR & GPIO_IDR_IDR0
+#define 	LED1_ON()			GPIOA->BSRR = GPIO_BSRR_BR0
+#define 	LED1_OFF()			GPIOA->BSRR = GPIO_BSRR_BS0
+#define 	LED0_ON()			GPIOC->BSRR = GPIO_BSRR_BR13
+#define 	LED0_OFF()			GPIOC->BSRR = GPIO_BSRR_BS13
+
+extern void initGPIO(void);
